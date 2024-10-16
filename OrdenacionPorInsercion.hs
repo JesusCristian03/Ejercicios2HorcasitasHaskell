@@ -5,8 +5,14 @@
 --ordena_por_inserción [2,4,3,6,3] ~> [2,3,3,4,6]
 
 --Solución: Se presentan distintas definiciones:
+inserta :: Ord a => a -> [a] -> [a]
+inserta x [] = [x]
+inserta x (y:ys)
+    | x <= y    = x : y : ys
+    | otherwise = y : inserta x ys
 
 --Definición recursiva
+
 
 ordena_por_inserción_1 :: Ord a => [a] -> [a]
 ordena_por_inserción_1 []     = []
